@@ -25,12 +25,13 @@
 #define __ML_SCENE_RENDERER_H
 
 #include <GL/glew.h>
+#include "mesh.h"
 #include <wrap/gl/gl_mesh_attributes_feeder.h>
 
 #include <QObject>
 #include <QMap>
 #include <QReadWriteLock>
-#include "mesh.h"
+
 
 
 class MLThreadSafeMemoryInfo;

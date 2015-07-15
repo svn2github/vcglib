@@ -103,19 +103,8 @@ private:
 	/// mesh data structure initializer
 	void initMesh(QString message);
 	MyDrawMode drawmode;
-	//MLThreadSafeMemoryInfo& mi;
 	MLThreadSafeGLMeshAttributesFeeder& feeder;
 	vcg::GLFeederInfo::ReqAtts rq;
 };
-
-//class GLAreaEXT:public GLArea
-//{
-//	Q_OBJECT 
-//public:
-//	GLAreaEXT (CMesh& m,MLThreadSafeGLMeshAttributesFeeder& feed,QWidget * parent = NULL,QGLWidget* shared = NULL);
-//	~GLAreaEXT();
-//
-//	void paintGL ();
-//};
 
 #endif /*GLAREA_H_ */
