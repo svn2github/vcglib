@@ -94,7 +94,6 @@ void MainWindow::initMesh(QString message)
 {
 	if (shared != NULL)
 		shared->deAllocateBO();
-	ui.statusbar->showMessage(message);
 	// update bounding box
 	vcg::tri::UpdateBounding<CMeshO>::Box(mesh);
 	// update Normals
@@ -102,11 +101,8 @@ void MainWindow::initMesh(QString message)
 	shared->passInfoToOpenGL(ui.drawModeComboBox->currentIndex());
 	for(size_t ii = 0;ii < 2;++ii)
 		if (glar[ii] != NULL)
-        {
-
 			glar[ii]->resetTrackBall();
-            glar[ii]->updateGL();
-        }
+    ui.statusbar->showMessage(message);
 }
 
 MainWindow::~MainWindow()
