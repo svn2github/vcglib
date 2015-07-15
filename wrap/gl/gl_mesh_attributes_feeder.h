@@ -112,7 +112,7 @@ struct GLFeederInfo
         const bool& operator[](ATT_NAMES att) const
         {
             size_t ii = static_cast<size_t>(att);
-            if ((ii < ATT_VERTPOSITION) && (ii > ATT_VERTINDEX))
+            if (ii > ATT_VERTINDEX)
                 throw GLFeederException("Out of range value\n");
             return _atts[ii];
         }
@@ -120,7 +120,7 @@ struct GLFeederInfo
         bool& operator[](ATT_NAMES att)
         {
             size_t ii = static_cast<size_t>(att);
-            if ((ii < ATT_VERTPOSITION) && (ii > ATT_VERTINDEX))
+            if (ii > ATT_VERTINDEX)
                 throw GLFeederException("Out of range value\n");
             return _atts[ii];
         }
