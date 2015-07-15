@@ -26,10 +26,7 @@
 
 #include <QReadWriteLock>
 
-#include "mesh.h"
-
-#include <GL/glew.h>
-#include <wrap/gl/gl_mesh_attributes_feeder.h>
+#include <wrap/system/memory_info.h>
 
 
 class MLThreadSafeMemoryInfo : public vcg::NotThreadSafeMemoryInfo
