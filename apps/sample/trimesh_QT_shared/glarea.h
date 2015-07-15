@@ -43,7 +43,6 @@ Initial release.
 
 #include "mesh.h"
 #include "ml_scene_renderer.h"
-#include "ml_atomic_guard.h"
 /// declaring edge and face type
 
 

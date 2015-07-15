@@ -192,8 +192,10 @@ void GLArea::updateRequested(MyDrawMode md,vcg::GLFeederInfo::ReqAtts& reqatts)
 
 void GLArea::resetTrackBall()
 {
+    makeCurrent();
 	track.Reset();
 	updateGL();
+    doneCurrent();
 }
 
 

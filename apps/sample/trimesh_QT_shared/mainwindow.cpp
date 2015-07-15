@@ -102,7 +102,11 @@ void MainWindow::initMesh(QString message)
 	shared->passInfoToOpenGL(ui.drawModeComboBox->currentIndex());
 	for(size_t ii = 0;ii < 2;++ii)
 		if (glar[ii] != NULL)
+        {
+
 			glar[ii]->resetTrackBall();
+            glar[ii]->updateGL();
+        }
 }
 
 MainWindow::~MainWindow()
