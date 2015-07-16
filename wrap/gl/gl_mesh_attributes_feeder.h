@@ -418,7 +418,7 @@ protected:
         bool replicated = isReplicatedPipeline(_currallocatedboatt);
         attributestobeupdated.clear();
         attributestobeupdated.resize(_bo.size());
-        long long unsigned int bomemoryrequiredbymesh = bufferObjectsMemoryRequired(_currallocatedboatt);
+        std::ptrdiff_t bomemoryrequiredbymesh = bufferObjectsMemoryRequired(_currallocatedboatt);
         bool generateindex = isVertexIndexingRequired(_currallocatedboatt);
         unsigned int ii = 0;
 
@@ -476,7 +476,7 @@ protected:
                 //we have to deallocate the previously allocated mesh attributes
                 if ((*it != NULL) && ((sz == (*it)->_size)))
                 {
-                    long long unsigned int dim(boExpectedDimension(boname,replicated,_currallocatedboatt[GLFeederInfo::ATT_VERTINDEX]));
+                    std::ptrdiff_t dim(boExpectedDimension(boname,replicated,_currallocatedboatt[GLFeederInfo::ATT_VERTINDEX]));
                     //disableClientState(boname,importattribute);
                     if ((*it)->_size > 0)
                     {
@@ -518,7 +518,7 @@ protected:
                 if (notvalidbuttoberegenerated)
                 {
                     cbo->_size = boExpectedSize(boname,replicated,_currallocatedboatt[GLFeederInfo::ATT_VERTINDEX]);
-                    long long unsigned int dim = boExpectedDimension(boname,replicated,_currallocatedboatt[GLFeederInfo::ATT_VERTINDEX]);
+                    std::ptrdiff_t dim = boExpectedDimension(boname,replicated,_currallocatedboatt[GLFeederInfo::ATT_VERTINDEX]);
 
                     glGenBuffers(1, &cbo->_bohandle);
                     glBindBuffer(cbo->_target, cbo->_bohandle);
@@ -1266,17 +1266,17 @@ protected:
         }
     }
 
-    long long unsigned int bufferObjectsMemoryRequired(ReqAtts& rqatt) const
+    std::ptrdiff_t bufferObjectsMemoryRequired(ReqAtts& rqatt) const
     {
         bool replicated = isReplicatedPipeline(rqatt);
-        long long unsigned int result(0);
+        std::ptrdiff_t result(0);
         bool generateindex = isVertexIndexingRequired(rqatt);
 
         for(unsigned int ii = 0;ii < (unsigned int)ATT_NAMES_ARITY;++ii)
         {
             ATT_NAMES nm = static_cast<ATT_NAMES>(ii);
             if (rqatt[nm])
-                result += (long long unsigned int) boExpectedDimension(nm,replicated,generateindex);
+                result += (std::ptrdiff_t) boExpectedDimension(nm,replicated,generateindex);
         }
         return result;
     }
